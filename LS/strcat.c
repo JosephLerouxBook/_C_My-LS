@@ -1,0 +1,48 @@
+/*
+** EPITECH PROJECT, 2017
+** LS
+** File description:
+** Strcat + revstr
+*/
+#include "my.h"
+
+char *my_strcat(char *dest, char  *src)
+{
+	char *tmp = malloc(sizeof(char)*(my_strlen(dest)
+					 + my_strlen(my_strdup(src)) + 2));
+	int i = 0;
+	int j = 0;
+
+	while (dest[i] != '\0') {
+		tmp[i] = dest[i];
+		i++;
+	}
+	if (dest[i] != '/') {
+		tmp[i] = '/';
+		i++;
+	}
+	while (src[j] != '\0') {
+		tmp[i + j] = src[j];
+		j++;
+	}
+	tmp[i+j] = '\0';
+	//printf("path apres strcat : %s\n", tmp);
+	return (tmp);
+
+}
+
+char *my_revstr(char *str)
+{
+	char *tmp = malloc(sizeof(char) * (my_strlen(str) + 1));
+	char c;
+	int i = my_strlen(str) - 1;
+	int j = 0;
+
+	while (i >= 0) {
+		tmp[j] = str[i];
+		i--;
+		j++;
+	}
+	tmp[j] = '\0';
+	return (tmp);
+}
